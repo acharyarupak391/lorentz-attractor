@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function datGuiSetup() {
     var gui = new dat.GUI();
-    gui.add(initialValues, 'scale', 1, 25).onChange(init)
+    gui.add(initialValues, 'scale', 1, 100).onChange(init)
     gui.add(initialValues, 'a', 1, 30).onChange(init)
     gui.add(initialValues, 'b', 1, 30).onChange(init)
     gui.add(initialValues, 'c', 1, 5).onChange(init)
