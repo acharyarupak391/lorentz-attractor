@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cnv.height = window.innerHeight - 4;
   });
   var x, y, z;
-  var color = {r: 200, g: 100, b: 50};
+  var color = {h: 200, s: 25, l: 30};
   var lastPoint = null;
   var initialValues = {
     scale: 12,
@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let _y = center.y - y * initialValues.scale;
     colorChange();
     ctx.beginPath();
-    // ctx.strokeStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
-    ctx.strokeStyle = `hsl(${color.r}deg, ${color.g}%, ${color.b}%)`;
+    ctx.strokeStyle = `hsl(${color.h}deg, ${color.s}%, ${color.l}%)`;
     if(lastPoint) ctx.moveTo(lastPoint.x, lastPoint.y);
     ctx.lineTo(_x, _y);
     ctx.lineWidth = 0.5;
@@ -40,9 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   function init() {
-    x = 1;
-    y = 1;
-    z = 1;
+    x = 10;
+    y = 10;
+    z = 10;
     ctx.beginPath();
     ctx.moveTo(center.x, center.y);
     ctx.clearRect(0, 0, center.x * 2, center.y * 2);
@@ -60,18 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function colorChange() {
-    Object.keys(color).map(col => {
-      // if(color[col] === Math.max(color.r, color.g, color.b)) color[col] = parseInt((color[col] + 100) % 255);
-      // else color[col] = parseInt((color[col] + 10) % 255);
-    })
-    color = {r: color.r + 1, g: 30, b: 50}
+    color = {h: color.h + 5, s: 80, l: 50}
   }
   
   function datGuiSetup() {
     var gui = new dat.GUI();
     gui.add(initialValues, 'scale', 1, 100).onChange(init)
     gui.add(initialValues, 'a', 1, 30).onChange(init)
-    gui.add(initialValues, 'b', 1, 30).onChange(init)
+    gui.add(initialValues, 'b', 15, 30).onChange(init)
     gui.add(initialValues, 'c', 1, 5).onChange(init)
     gui.add(initialValues, 'dt', 0.0001, 0.01).onChange(init)
   }
