@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var color = {r: 200, g: 100, b: 50};
   var lastPoint = null;
   var initialValues = {
-    scale: 15,
+    scale: 12,
     a: 5,
     b: 28,
     c: 2,
