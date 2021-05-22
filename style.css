@@ -1,8 +1,27 @@
 html, body {
   margin: 0;
+  height: 100vh; /* for threejs */
 }
 
 canvas {
   margin: 0;
   background: #151515;
+  display: block; /* for threejs */
+}
+
+#info {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: aliceblue;
+  top: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#info > em {
+  color: yellow;
+}
+
+#info > span {
+  color: rgb(255, 116, 92);
 }
