@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function line() {
     geometry = new THREE.BufferGeometry().setFromPoints(vertices);
-    lineMaterial = new THREE.LineBasicMaterial({linewidth: 15, vertexColors: true});
+    lineMaterial = new THREE.LineBasicMaterial({linewidth: 5, vertexColors: true});
     lineObject = new THREE.Line(geometry, lineMaterial);
 
     // geometry = new THREE.TubeGeometry(vertices, 20, 2, 8).setFromPoints(vertices);
